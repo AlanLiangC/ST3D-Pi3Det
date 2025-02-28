@@ -346,7 +346,11 @@ class Detector3DTemplate(nn.Module):
                 # logger.info('Update weight %s: %s' % (key, str(val.shape)))
 
         if cfg.get('SELF_TRAIN', None) and cfg.SELF_TRAIN.get('DSNORM', None):
-            self.load_state_dict(spconv_matched_state)
+            if strict:
+                self.load_state_dict(spconv_matched_state)
+            else:
+                state_dict.update(spconv_matched_state)
+                self.load_state_dict(state_dict)        
         elif strict:
             self.load_state_dict(update_model_state)
         else:

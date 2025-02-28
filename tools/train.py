@@ -18,7 +18,6 @@ from pi3det_pcdet.models import build_network, model_fn_decorator
 from pi3det_pcdet.utils import common_utils
 from train_utils.optimization import build_optimizer, build_scheduler
 from train_utils.train_utils import train_model
-from train_utils.train_st_utils import train_model_st
 
 
 def parse_config():
@@ -175,7 +174,11 @@ def main():
     )
 
     # select proper trainer
-    train_func = train_model_st if cfg.get('SELF_TRAIN', None) else train_model
+    if cfg.get('SELF_TRAIN', None):
+        # from train_utils.train_st_utils import train_model_st as train_func
+        from train_utils.pi3det_train_st_utils import train_model_st as train_func
+    else:
+        train_func = train_model
 
     # -----------------------start training---------------------------
     logger.info('**********************Start training %s/%s(%s)**********************'

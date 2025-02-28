@@ -9,6 +9,31 @@ class SECONDNetIoU(Detector3DTemplate):
         super().__init__(model_cfg=model_cfg, num_class=num_class, dataset=dataset)
         self.module_list = self.build_networks()
 
+    def det_source_stage_mode(self):
+        for param in self.parameters():
+            param.requires_grad = True
+
+        if hasattr(self.dense_head, 'alignment_model'):
+            for param in self.dense_head.alignment_model.parameters():
+                param.requires_grad = False
+
+    def det_target_stage_mode(self):
+
+        if hasattr(self.dense_head, 'alignment_model'):
+            for param in self.dense_head.alignment_model.parameters():
+                param.requires_grad = True
+
+    def dist_stage_mode(self):
+        for param in self.parameters():
+            param.requires_grad = False
+
+        if hasattr(self.dense_head, 'alignment_model'):
+            for param in self.dense_head.alignment_model.parameters():
+                param.requires_grad = True
+
+            for param in self.roi_head.alignment_model.parameters():
+                param.requires_grad = True
+
     def forward(self, batch_dict):
         batch_dict['dataset_cfg'] = self.dataset.dataset_cfg
         for cur_module in self.module_list:

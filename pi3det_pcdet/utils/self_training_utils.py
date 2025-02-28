@@ -94,8 +94,10 @@ def save_pseudo_label_epoch(model, val_loader, rank, leave_pbar, ps_label_dir, c
         except StopIteration:
             target_dataloader_iter = iter(val_loader)
             target_batch = next(target_dataloader_iter)
-
-        # generate gt_boxes for target_batch and update model weights
+        if cur_epoch == 0:
+            target_batch['mode'] = 'misalignment'
+        else:
+            target_batch['mode'] = 'alignment'        # generate gt_boxes for target_batch and update model weights
         with torch.no_grad():
             load_data_to_gpu(target_batch)
             pred_dicts, ret_dict = model(target_batch)
