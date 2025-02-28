@@ -4,12 +4,12 @@ import glob
 import tqdm
 import numpy as np
 import torch.distributed as dist
-from pcdet.config import cfg
-from pcdet.models import load_data_to_gpu
-from pcdet.utils import common_utils, commu_utils, memory_ensemble_utils
+from pi3det_pcdet.config import cfg
+from pi3det_pcdet.models import load_data_to_gpu
+from pi3det_pcdet.utils import common_utils, commu_utils, memory_ensemble_utils
 import pickle as pkl
 import re
-from pcdet.models.model_utils.dsnorm import set_ds_target
+from pi3det_pcdet.models.model_utils.dsnorm import set_ds_target
 
 
 PSEUDO_LABELS = {}

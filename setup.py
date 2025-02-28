@@ -29,12 +29,12 @@ def write_version_to_file(version, target_file):
 
 if __name__ == '__main__':
     version = '0.4.0+%s' % get_git_commit_number()
-    write_version_to_file(version, 'pcdet/version.py')
+    write_version_to_file(version, 'pi3det_pcdet/version.py')
 
     setup(
-        name='pcdet',
+        name='pi3det_pcdet',
         version=version,
-        description='OpenPCDet is a general codebase for 3D object detection from point cloud',
+        description='Openpi3det_pcdet is a general codebase for 3D object detection from point cloud',
         install_requires=[
             'numpy',
             'torch>=1.1',
@@ -51,7 +51,7 @@ if __name__ == '__main__':
         ext_modules=[
             make_cuda_ext(
                 name='iou3d_nms_cuda',
-                module='pcdet.ops.iou3d_nms',
+                module='pi3det_pcdet.ops.iou3d_nms',
                 sources=[
                     'src/iou3d_cpu.cpp',
                     'src/iou3d_nms_api.cpp',
@@ -61,7 +61,7 @@ if __name__ == '__main__':
             ),
             make_cuda_ext(
                 name='roiaware_pool3d_cuda',
-                module='pcdet.ops.roiaware_pool3d',
+                module='pi3det_pcdet.ops.roiaware_pool3d',
                 sources=[
                     'src/roiaware_pool3d.cpp',
                     'src/roiaware_pool3d_kernel.cu',
@@ -69,7 +69,7 @@ if __name__ == '__main__':
             ),
             make_cuda_ext(
                 name='roipoint_pool3d_cuda',
-                module='pcdet.ops.roipoint_pool3d',
+                module='pi3det_pcdet.ops.roipoint_pool3d',
                 sources=[
                     'src/roipoint_pool3d.cpp',
                     'src/roipoint_pool3d_kernel.cu',
@@ -77,7 +77,7 @@ if __name__ == '__main__':
             ),
             make_cuda_ext(
                 name='pointnet2_stack_cuda',
-                module='pcdet.ops.pointnet2.pointnet2_stack',
+                module='pi3det_pcdet.ops.pointnet2.pointnet2_stack',
                 sources=[
                     'src/pointnet2_api.cpp',
                     'src/ball_query.cpp',
@@ -92,7 +92,7 @@ if __name__ == '__main__':
             ),
             make_cuda_ext(
                 name='pointnet2_batch_cuda',
-                module='pcdet.ops.pointnet2.pointnet2_batch',
+                module='pi3det_pcdet.ops.pointnet2.pointnet2_batch',
                 sources=[
                     'src/pointnet2_api.cpp',
                     'src/ball_query.cpp',

@@ -11,11 +11,11 @@ from tensorboardX import SummaryWriter
 import torch.distributed as dist
 from test import repeat_eval_ckpt
 
-from pcdet.config import cfg, cfg_from_list, cfg_from_yaml_file, log_config_to_file
-from pcdet.datasets import build_dataloader
-from pcdet.models.model_utils.dsnorm import DSNorm
-from pcdet.models import build_network, model_fn_decorator
-from pcdet.utils import common_utils
+from pi3det_pcdet.config import cfg, cfg_from_list, cfg_from_yaml_file, log_config_to_file
+from pi3det_pcdet.datasets import build_dataloader
+from pi3det_pcdet.models.model_utils.dsnorm import DSNorm
+from pi3det_pcdet.models import build_network, model_fn_decorator
+from pi3det_pcdet.utils import common_utils
 from train_utils.optimization import build_optimizer, build_scheduler
 from train_utils.train_utils import train_model
 from train_utils.train_st_utils import train_model_st

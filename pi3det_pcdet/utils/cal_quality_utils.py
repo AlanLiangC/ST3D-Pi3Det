@@ -4,11 +4,11 @@ import torch
 import argparse
 import pickle
 import glob
-from pcdet.datasets.kitti.kitti_object_eval_python import eval as kitti_eval
+from pi3det_pcdet.datasets.kitti.kitti_object_eval_python import eval as kitti_eval
 
 import numpy as np
-from pcdet.utils import common_utils, box_utils
-from pcdet.ops.iou3d_nms import iou3d_nms_utils
+from pi3det_pcdet.utils import common_utils, box_utils
+from pi3det_pcdet.ops.iou3d_nms import iou3d_nms_utils
 
 
 class QualityMetric(object):

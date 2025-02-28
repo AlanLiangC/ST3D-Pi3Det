@@ -3,10 +3,10 @@ import os
 import glob
 import tqdm
 from torch.nn.utils import clip_grad_norm_
-from pcdet.utils import common_utils
-from pcdet.utils import self_training_utils
-from pcdet.config import cfg
-from pcdet.models.model_utils.dsnorm import set_ds_source, set_ds_target
+from pi3det_pcdet.utils import common_utils
+from pi3det_pcdet.utils import self_training_utils
+from pi3det_pcdet.config import cfg
+from pi3det_pcdet.models.model_utils.dsnorm import set_ds_source, set_ds_target
 
 from .train_utils import save_checkpoint, checkpoint_state
 

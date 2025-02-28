@@ -1,9 +1,9 @@
 import torch
 import numpy as np
 from scipy.optimize import linear_sum_assignment
-from pcdet.utils import common_utils
-from pcdet.ops.iou3d_nms import iou3d_nms_utils
-from pcdet.models.model_utils.model_nms_utils import class_agnostic_nms
+from pi3det_pcdet.utils import common_utils
+from pi3det_pcdet.ops.iou3d_nms import iou3d_nms_utils
+from pi3det_pcdet.models.model_utils.model_nms_utils import class_agnostic_nms
 
 
 def consistency_ensemble(gt_infos_a, gt_infos_b, memory_ensemble_cfg):

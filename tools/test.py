@@ -10,12 +10,12 @@ import argparse
 import numpy as np
 from pathlib import Path
 import torch.distributed as dist
-from pcdet.datasets import build_dataloader
-from pcdet.models import build_network
-from pcdet.utils import common_utils
-from pcdet.config import cfg, cfg_from_list, cfg_from_yaml_file, log_config_to_file
+from pi3det_pcdet.datasets import build_dataloader
+from pi3det_pcdet.models import build_network
+from pi3det_pcdet.utils import common_utils
+from pi3det_pcdet.config import cfg, cfg_from_list, cfg_from_yaml_file, log_config_to_file
 from eval_utils import eval_utils
-from pcdet.models.model_utils.dsnorm import DSNorm
+from pi3det_pcdet.models.model_utils.dsnorm import DSNorm
 
 
 def parse_config():

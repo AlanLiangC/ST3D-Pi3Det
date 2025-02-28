@@ -9,7 +9,7 @@ from .. import backbones_2d, backbones_3d, dense_heads, roi_heads
 from ..backbones_2d import map_to_bev
 from ..backbones_3d import pfe, vfe
 from ..model_utils import model_nms_utils
-from pcdet.config import cfg
+from pi3det_pcdet.config import cfg
 
 
 class Detector3DTemplate(nn.Module):
