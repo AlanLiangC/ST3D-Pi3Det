@@ -142,6 +142,12 @@ class NuScenesDataset(DatasetTemplate):
                 'gt_boxes': info['gt_boxes'] if mask is None else info['gt_boxes'][mask]
             })
 
+            if self.dataset_cfg.get('CLASS_MAP', None) is not None:
+                for i in range(len(input_dict['gt_names'])):
+                    name = input_dict['gt_names'][i]
+                    if name in self.dataset_cfg.CLASS_MAP:
+                        input_dict['gt_names'][i] = self.dataset_cfg.CLASS_MAP[name]
+
             if self.dataset_cfg.get('SHIFT_COOR', None):
                 input_dict['gt_boxes'][:, 0:3] += self.dataset_cfg.SHIFT_COOR
 
